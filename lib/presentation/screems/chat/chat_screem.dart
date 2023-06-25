@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/presentation/widgets/chat/her_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
+import 'package:yes_no_app/presentation/widgets/shared/message_field_box.dart';
 
 class ChatScreem extends StatelessWidget {
   const ChatScreem({super.key});
@@ -15,7 +17,7 @@ class ChatScreem extends StatelessWidget {
                 "https://images-stylist.s3-eu-west-1.amazonaws.com/app/uploads/2020/01/21072140/jennifer-aniston-sag-crop-1579591317-1090x1090.jpg"),
           ),
         ),
-        title: const Text('Mi amor'),
+        title: const Text('Usuario generico'),
       ),
       body: _ChatView(),
     );
@@ -31,9 +33,10 @@ class _ChatView extends StatelessWidget {
         child: Column(
           children: [
             Expanded(child: ListView.builder(itemBuilder: (context, index) {
-              return const MyMessageBubble();
+              return (index % 2 ==0) ? const HerMessageBubble() : const MyMessageBubble();
             })),
-            Text('data')
+            //caja de texto
+            const MessageFieldBox()
           ],
         ),
       ),
